@@ -6,9 +6,8 @@
 
 CI images with `node:16-alpine` as base `yarn`, `Terraform`, `Terragrunt`, `AWS CLI V2` (compiled for Alpine linux), `Ansible`, `python3`.
 
-## Versions
+## Versions & Tags
 
-There are 3 images for every supported nodejs runtimes (only nodejs 14, 16 and 18 for now):
 - nodejs-terragrunt:16
 
 ## Docker image content
