@@ -1,6 +1,6 @@
 # Nodejs Terragrunt docker image
 
-[Docker image link](https://hub.docker.com/r/zenbeni/nodejs_devops)
+[Docker image link](https://hub.docker.com/r/zenbeni/nodejs-terragrunt)
 
 ## Description
 
