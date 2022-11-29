@@ -44,7 +44,7 @@ RUN apk update
 RUN apk upgrade --available
 RUN apk add --no-cache curl wget zip tar python3 py3-pip git openssl openssh-client jq
 RUN apk add --no-cache bash tar gzip openrc yarn ansible
-RUN pip3 install --upgrade pip docker-compose yq --ignore-installed distlib
+RUN pip3 install --upgrade pip yq --ignore-installed distlib
 RUN rm -rf /var/cache/apk/*
 RUN ansible --version
 
