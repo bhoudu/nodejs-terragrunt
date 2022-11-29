@@ -12,7 +12,7 @@ jobs:
           terragrunt_version: 0.39.2
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - run: yarn install --frozen-lockfile
     - run: sh ./scripts/download.sh files/terraform_linux_amd64.zip https://releases.hashicorp.com/terraform/${{ matrix.terraform_version }}/terraform_${{ matrix.terraform_version }}_linux_amd64.zip
     - run: sh ./scripts/download.sh files/terragrunt https://github.com/gruntwork-io/terragrunt/releases/download/v${{ matrix.terragrunt_version }}/terragrunt_linux_amd64
