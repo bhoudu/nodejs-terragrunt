@@ -32,4 +32,4 @@ jobs:
         context: .
         file: ./Dockerfile
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-terragrunt:${{ matrix.node_version }}
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/nodejs-terragrunt:16
