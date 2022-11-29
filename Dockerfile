@@ -21,10 +21,6 @@ RUN /aws-cli-bin/aws --version
 RUN rm -rf /usr/local/aws-cli/v2/current/dist/aws_completer /usr/local/aws-cli/v2/current/dist/awscli/data/ac.index /usr/local/aws-cli/v2/current/dist/awscli/examples
 RUN find /usr/local/aws-cli/v2/current/dist/awscli/botocore/data -name examples-1.json -delete
 
-# Install docker-credential-ecr-login
-FROM golang:alpine AS golang
-RUN apk add git && go install github.com/awslabs/amazon-ecr-credential-helper/ecr-login/cli/docker-credential-ecr-login@latest
-
 # Build final docker image now that all binaries are OK
 FROM node:16-alpine as base
 
@@ -37,13 +33,12 @@ ENV TERRAGRUNT_VERSION $TERRAGRUNT_VERSION
 ENV DOCKER_DRIVER overlay
 COPY entrypoint.sh /usr/local/bin/
 RUN chmod +x /usr/local/bin/entrypoint.sh
-COPY --from=golang /go/bin/docker-credential-ecr-login /usr/local/bin
 
 # Install alpine packages
 RUN apk update
 RUN apk upgrade --available
 RUN apk add --no-cache curl wget zip tar python3 py3-pip git openssl openssh-client jq
-RUN apk add --no-cache bash tar gzip openrc yarn ansible
+RUN apk add --no-cache bash tar gzip yarn ansible
 RUN pip3 install --upgrade pip yq --ignore-installed distlib
 RUN rm -rf /var/cache/apk/*
 RUN ansible --version
